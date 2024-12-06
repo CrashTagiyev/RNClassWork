@@ -11,7 +11,7 @@ const TabStack = () => {
   return (
    <Tab.Navigator  screenOptions={{headerShown: false}}>
     <Tab.Screen  name='Home' component={HomeStack}/>
-    <Tab.Screen name='Profile ' component={ProfileStack}/>
+    <Tab.Screen name='Profile' component={ProfileStack}/>
     <Tab.Screen name='Settings' component={SettingsStack}/>
    </Tab.Navigator>
   )

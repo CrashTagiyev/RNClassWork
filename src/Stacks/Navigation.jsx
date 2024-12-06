@@ -6,7 +6,7 @@ import TabStack from './TabStack';
 
 const Navigation = () => {
   return (
-    <NavigationContainer> 
+    <NavigationContainer > 
         <TabStack />
     </NavigationContainer>
   )

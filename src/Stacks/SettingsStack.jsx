@@ -8,7 +8,7 @@ const stack = createNativeStackNavigator();
 const SettingsStack = () => {
   return (
     <stack.Navigator>
-      <stack.Screen  name="Settings" component={SettingsScreen}/>
+      <stack.Screen  name="SettingsScreen" component={SettingsScreen}/>
       <stack.Screen options={{title:"Change password"}} name="ChangePassword" component={ChangePassword}/>
     </stack.Navigator>
   );
