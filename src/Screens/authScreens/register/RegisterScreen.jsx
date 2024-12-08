@@ -5,6 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
   Alert,
+  ScrollView,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {register} from '../../../Fetchs/auth/authFetchs';
@@ -19,7 +20,7 @@ const RegisterScreen = () => {
   const navigation = useNavigation()
 
   return (
-    <View className="flex-1 gap-4 p-6">
+    <ScrollView className="flex-1 gap-4 p-6">
       <TextInput
         onChangeText={text => {
           onChangeInput('email', text);
@@ -74,7 +75,7 @@ const RegisterScreen = () => {
         className=" py-5 rounded-lg">
         <Text className="text-center text-black">Log In</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
 

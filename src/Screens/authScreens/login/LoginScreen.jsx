@@ -1,12 +1,12 @@
 import {
   StyleSheet,
   Text,
-  View,
   TextInput,
   TouchableOpacity,
   Alert,
+  ScrollView,
 } from 'react-native';
-import { useState} from 'react';
+import {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {login} from '../../../Fetchs/auth/authFetchs';
 import {storage} from '../../../MMKV/storage';
@@ -19,7 +19,7 @@ const LoginScreen = () => {
   };
 
   return (
-    <View className="p-6 gap-2">
+    <ScrollView className="p-6 gap-2">
       <TextInput
         onChangeText={text => {
           onChangeInput('email', text);
@@ -59,7 +59,7 @@ const LoginScreen = () => {
         className=" py-5 rounded-lg">
         <Text className="text-center text-black">Doesn`t have a account?</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
 
