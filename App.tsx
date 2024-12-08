@@ -8,7 +8,7 @@ import Navigation from './src/Stacks/Navigation'
 
 
 const App = () => {
-
+  
   return (
     <SafeAreaProvider  >
       <SafeAreaView className="flex-1" >
