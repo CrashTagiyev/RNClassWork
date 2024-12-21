@@ -1,19 +1,17 @@
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomePage from '../Screens/HomeScreens/HomePage';
-import DetailsPage from '../Screens/HomeScreens/DetailsPage';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import NewAndHotScreen from '../Screens/newAndHotScreens/NewAndHotScreen';
 import {Dimensions, Text, TouchableOpacity, View, Image} from 'react-native';
 import SearchIcon from '../../assets/tabIcons/search.svg';
 import ScreenCastIcon from '../../assets/tabIcons/screenCast.svg';
 import { OnBoardingItems } from '../Screens/onBoarding/items/onBoardingItems';
 
-const Stack = createNativeStackNavigator();
 
-const HomeStack = () => {
-  const screenWidth = Dimensions.get('screen').width;
+const Stack = createNativeStackNavigator()
+
+const NewAndHotStack = () => {
   return (
-    <Stack.Navigator screenOptions={{headerShown: true}}>
-      <Stack.Screen
-        options={{
+   <Stack.Navigator screenOptions={{headerShown: true}} >
+    <Stack.Screen         options={{
           headerStyle: {
             backgroundColor: `#141115`,
           },
@@ -42,13 +40,10 @@ const HomeStack = () => {
             backgroundColor: '#141115',
             height: 70,
           },
-        }}
-        name="HomeScreen"
-        component={HomePage}
-      />
-      <Stack.Screen name="Details" component={DetailsPage} />
-    </Stack.Navigator>
-  );
-};
+        }} name="NewAndHot" component={NewAndHotScreen}/>
+   </Stack.Navigator>
+  )
+}
 
-export default HomeStack;
+export default NewAndHotStack
+

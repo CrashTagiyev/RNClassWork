@@ -17,9 +17,9 @@ const DetailsPage = () => {
   const {id} = route.params;
 
   useEffect(() => {
-    getProductById(id).then(data => {
-      setProduct(data);
-    });
+    // getProductById(id).then(data => {
+    //   setProduct(data);
+    // });
   }, []);
 
   if (!product.title)

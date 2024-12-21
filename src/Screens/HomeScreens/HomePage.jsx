@@ -3,30 +3,30 @@ import {useEffect, useState} from 'react';
 import {View, FlatList, ScrollView, TouchableOpacity, Text} from 'react-native';
 import {getProducts} from '../../Fetchs/products/productsFetch';
 import ProductCart from './ProductCart';
+import {getTrensingTvShows} from '../../Fetchs/tvShows/trendingTvShows';
+import {storage} from '../../MMKV/storage';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    getProducts().then(data => {
-      setProducts(data);
-    });
-  }, []);
 
   return (
-    <View className="p-[10px] justify-center items-start">
-      <ScrollView horizontal={true} className=' w-[330px] h-[30px]'>
-        <TouchableOpacity className='w-[115px] h-[30px] border-r p-1 justify-center  border-r-green-500'><Text className='color-green-500 text-center justify-center'>Button1</Text></TouchableOpacity>
-        <TouchableOpacity className='w-[115px] h-[30px] border-r p-1 justify-center  border-r-green-500'><Text className='color-green-500 text-center justify-center'>Button2</Text></TouchableOpacity>
-        <TouchableOpacity className='w-[115px] h-[30px] border-r p-1 justify-center  border-r-green-500'><Text className='color-green-500 text-center justify-center'>Button3</Text></TouchableOpacity>
-        <TouchableOpacity className='w-[115px] h-[30px] border-r p-1 justify-center  border-r-green-500'><Text className='color-green-500 text-center justify-center'>Button4</Text></TouchableOpacity>
-      </ScrollView>
-      <FlatList
-        contentContainerStyle={{padding: 16, gap: 16}}
-        ItemSeparatorComponent={() => <View style={{height: 10}} />}
-        data={products}
-        renderItem={({item}) => <ProductCart product={item} />}
-      />
+    <View className="flex-1 pl-[10px] pr-[10px] bg-[#141115] ">
+      <TouchableOpacity
+      className='h-20 w-30'
+        onPress={async () => {
+          await getTrensingTvShows();
+        }}>
+        <Text className='text-white'>Fetch</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          storage.clearAll();
+        }}
+        className=" w-[100px] h-[40px] justify-center bg-red-500 rounded-md">
+        <Text className="text-white text-center">LogOut</Text>
+      </TouchableOpacity>
+
     </View>
   );
 };

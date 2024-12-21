@@ -1,20 +1,30 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import TabBar from './components/TabBar';
 import HomeStack from './HomeStack';
-import ProfileStack from './ProfileStack';
-import SettingsStack from './SettingsStack';
+import NewAndHotStack from './NewAndHotStack';
+import DownloadsStack from './DownloadsStack';
 
 
-const Tab= createBottomTabNavigator()
-
+const Tab = createBottomTabNavigator();
 
 const TabStack = () => {
   return (
-   <Tab.Navigator  screenOptions={{headerShown: false}}>
-    <Tab.Screen  name='Home' component={HomeStack}/>
-    <Tab.Screen name='Profile' component={ProfileStack}/>
-    <Tab.Screen name='Settings' component={SettingsStack}/>
-   </Tab.Navigator>
-  )
-}
+    <Tab.Navigator
+      tabBar={({state, descriptors, navigation}) => (
+        <TabBar
+          state={state}
+          descriptors={descriptors}
+          navigation={navigation}
+        />
+      )}
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Tab.Screen name="Home" component={HomeStack} />
+      <Tab.Screen name="New & Hot" component={NewAndHotStack} />
+      <Tab.Screen name="Downloads" component={DownloadsStack} />
+    </Tab.Navigator>
+  );
+};
 
-export default TabStack
+export default TabStack;
