@@ -4,7 +4,6 @@ import DetailsPage from '../Screens/HomeScreens/DetailsPage';
 import {Dimensions, Text, TouchableOpacity, View, Image} from 'react-native';
 import SearchIcon from '../../assets/tabIcons/search.svg';
 import ScreenCastIcon from '../../assets/tabIcons/screenCast.svg';
-import { OnBoardingItems } from '../Screens/onBoarding/items/onBoardingItems';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,11 +28,6 @@ const HomeStack = () => {
                   <SearchIcon />
                 </TouchableOpacity>
                 <TouchableOpacity className="h-[30] w-[40] -">
-                  <Image
-                    resizeMode="cover"
-                    style={{ height: 30, width: 40 }}
-                    source={OnBoardingItems[0].image}
-                  />
                 </TouchableOpacity>
               </View>
             </View>

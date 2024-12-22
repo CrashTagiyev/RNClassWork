@@ -13,6 +13,7 @@ import {storage} from '../../../MMKV/storage';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import SeePassword from '../../../../assets/authAssets/eye.svg';
 import UnSeePassword from '../../../../assets/authAssets/eyeSlash.svg';
+import { useTranslation } from 'react-i18next';
 
 const LoginScreen = () => {
   const [formData, setFormData] = useState({});
@@ -21,7 +22,7 @@ const LoginScreen = () => {
   const onChangeInput = (name, text) => {
     setFormData(prev => ({...prev, [name]: text}));
   };
-
+  const {t} = useTranslation()
   return (
     <KeyboardAwareScrollView
       keyboardShouldPersistTaps="handled"
@@ -68,7 +69,7 @@ const LoginScreen = () => {
           }}
           className="bg-[#E50A14] py-5 mt-8">
           <Text className="text-center text-white text-xl font-extrabold">
-            Sign In
+            {t("signIn")}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -77,7 +78,7 @@ const LoginScreen = () => {
           }}
           className=" py-5 rounded-lg">
           <Text className="text-center text-white">
-            Doesn`t have a account?
+            {t("doesntHaveAccount")}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -85,7 +86,7 @@ const LoginScreen = () => {
             navigation.navigate('Register');
           }}
           className=" rounded-lg">
-          <Text className="text-center text-white">Recover password</Text>
+          <Text className="text-center text-white">{t("recoverPassword")}</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAwareScrollView>

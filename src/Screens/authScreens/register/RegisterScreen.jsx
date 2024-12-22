@@ -13,6 +13,7 @@ import {useNavigation} from '@react-navigation/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import SeePassword from '../../../../assets/authAssets/eye.svg';
 import UnSeePassword from '../../../../assets/authAssets/eyeSlash.svg';
+import { t } from 'i18next';
 
 const RegisterScreen = () => {
   const [formData, setFormData] = useState({});
@@ -73,14 +74,14 @@ const RegisterScreen = () => {
             } catch (error) {}
           }}
           className="justify-center mt-3  bg-[#E50A14] h-[50px]">
-          <Text className="text-center color-white">Register</Text>
+          <Text className="text-center color-white">{t("register")}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
             navigation.navigate('Login');
           }}
           className=" py-5 rounded-lg">
-          <Text className="text-center text-white">Sign In</Text>
+          <Text className="text-center text-white">{t("signIn")}</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAwareScrollView>

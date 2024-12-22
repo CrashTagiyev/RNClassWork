@@ -8,5 +8,12 @@
     "howToWatch": "Как смотреть?",
     "howToWatchDesc": "Подписчики Netflix могут смотреть здесь, в приложении",
     "getStarted":"Начать",
-
+    "signIn" :"Войти",
+    "logOut" : "Выйти",
+    "doesntHaveAccount":"Все ешё нету аккаунта?",
+    "register":"Зарегистрироваться",
+    "recoverPassword" : "Восстановить пароль",    
+    "home" : "Главная",
+    "newAndHot" : "Новое и популярное",
+    "downloads" : "Загрузки"
 }

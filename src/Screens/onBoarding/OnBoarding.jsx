@@ -10,16 +10,13 @@ import {
 } from 'react-native';
 import {act, useEffect, useState} from 'react';
 import NetflixIcon from '../../../assets/onBoardingPngs/NetflixIcon.svg';
-import Orientation from 'react-native-orientation-locker';
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {useMMKVString} from 'react-native-mmkv';
 
 const Onboarding = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  // useEffect(()=>{
-  //   Orientation.lockToPortrait();
-  // },[])
+
   const imageWidth = Dimensions.get('screen').width / 2;
   const [selectedLanguage, setSelectedLanguage] =
     useMMKVString('selectedLanguage');
