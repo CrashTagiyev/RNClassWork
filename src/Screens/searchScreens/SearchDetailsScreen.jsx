@@ -1,21 +1,21 @@
-import {useCallback, useEffect, useState} from 'react';
-import {Alert, Text, TouchableOpacity, View,ScrollView} from 'react-native';
+import {useCallback, useEffect, useRef, useState} from 'react';
+import {Alert, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import YoutubeIframe from 'react-native-youtube-iframe';
 import {useFocusEffect, useRoute} from '@react-navigation/native';
 import {NETFLIX_API_URI} from '@src/Utils/Uris';
 import NetflixIcon from '@assets/netflix-logo-icon.svg';
 import PlayIcon from '@assets/play.svg';
 import DownloadIcon from '@assets/download.svg';
-import Similiars from './components/Similiars.jsx';
+import SearchDetailsSimilars from './components/SearchDetailsSimilars';
 
-const DetailsPage = () => {
-
+const SearchDetailsScreen = () => {
   const [content, setContent] = useState({});
   const [trailer, setTrailer] = useState({});
   const [isPlaying, setIsPlaying] = useState(false);
   const route = useRoute();
-  const {id, type,playVideo} = route?.params;
+  const {id, type} = route?.params;
   const [showMore, setShowMore] = useState(false);
+
 
   const onStateChange = useCallback(state => {
     if (state === 'ended') {
@@ -32,12 +32,11 @@ const DetailsPage = () => {
     const trailersResponse = await fetch(
       `${NETFLIX_API_URI}/${type}/${id}/trailers`,
     );
-    
+
     const data = await detailsResponse.json();
     const trailers = await trailersResponse.json();
     setTrailer(trailers.trailers[0]);
     setContent(data.content);
-    
   };
   const togglePlaying = useCallback(() => {
     setIsPlaying(prev => !prev);
@@ -46,10 +45,6 @@ const DetailsPage = () => {
   useEffect(() => {
     getContent();
   }, []);
-
-  useEffect(() => {
-    getContent();
-  }, [id, type]);
 
 
   if (!id || !type) {
@@ -66,7 +61,7 @@ const DetailsPage = () => {
         height={240}
         videoId={trailer?.key || ''}
         onChangeState={onStateChange}
-        play={playVideo || isPlaying}
+        play={isPlaying}
       />
  
       <View className="flex-1 px-[5px] py-[10px]">
@@ -103,10 +98,10 @@ const DetailsPage = () => {
           </Text>
           <Text className="text-lg text-blue-500">{!showMore && 'more'}</Text>
         </TouchableOpacity>
-        <Similiars id={id} type={type} />
+        <SearchDetailsSimilars id={id} type={type} />
       </View>
     </ScrollView>
   );
 };
 
-export default DetailsPage;
+export default SearchDetailsScreen;

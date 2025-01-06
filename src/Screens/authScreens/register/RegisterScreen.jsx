@@ -13,7 +13,7 @@ import {useNavigation} from '@react-navigation/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import SeePassword from '../../../../assets/authAssets/eye.svg';
 import UnSeePassword from '../../../../assets/authAssets/eyeSlash.svg';
-import { t } from 'i18next';
+import {t} from 'i18next';
 
 const RegisterScreen = () => {
   const [formData, setFormData] = useState({});
@@ -25,7 +25,9 @@ const RegisterScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" className="bg-[#141115]">
+    <KeyboardAwareScrollView
+      keyboardShouldPersistTaps="handled"
+      className="bg-[#141115]">
       <View className="flex-1 gap-4 p-6">
         <TextInput
           onChangeText={text => {
@@ -45,26 +47,27 @@ const RegisterScreen = () => {
           className=" mt-[15px] h-[52] bg-[#353236] pl-2"
           style={{color: 'white'}}
         />
-        <TextInput
-          onChangeText={text => {
-            onChangeInput('password', text);
-          }}
-          placeholderTextColor="#767676"
-          placeholder="Password"
-          className=" mt-[15px] h-[52] bg-[#353236] pl-2"
-          style={{color: 'white'}}
-          secureTextEntry={isPasswordInvisible}
-        />
-        <TouchableOpacity
-          onPress={() => {
-            setIsPasswordInvisible(p => !p);
-          }}
-          className="h-[50] w-[50]   absolute left-[295] top-[199] ">
-          <View className="flex-1 justify-center items-center h-[20] w-[30]">
-            {!isPasswordInvisible ? <SeePassword /> : <UnSeePassword />}
+        <View>
+          <TextInput
+            onChangeText={text => {
+              onChangeInput('password', text);
+            }}
+            placeholderTextColor="#767676"
+            placeholder="Password"
+            className=" mt-[15px] h-[52] bg-[#353236] pl-2"
+            style={{color: 'white'}}
+            secureTextEntry={isPasswordInvisible}
+          />
+          <View className=" absolute right-1 top-7 h-10">
+            <TouchableOpacity
+              className=" h-10 w-10 mr-3"
+              onPress={() => {
+                setIsPasswordInvisible(p => !p);
+              }}>
+              {!isPasswordInvisible ? <SeePassword /> : <UnSeePassword />}
+            </TouchableOpacity>
           </View>
-        </TouchableOpacity>
-
+        </View>
         <TouchableOpacity
           onPress={async () => {
             try {
@@ -74,14 +77,14 @@ const RegisterScreen = () => {
             } catch (error) {}
           }}
           className="justify-center mt-3  bg-[#E50A14] h-[50px]">
-          <Text className="text-center color-white">{t("register")}</Text>
+          <Text className="text-center color-white">{t('register')}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
             navigation.navigate('Login');
           }}
           className=" py-5 rounded-lg">
-          <Text className="text-center text-white">{t("signIn")}</Text>
+          <Text className="text-center text-white">{t('signIn')}</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAwareScrollView>

@@ -1,9 +1,10 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomePage from '../Screens/HomeScreens/HomePage';
-import DetailsPage from '../Screens/HomeScreens/DetailsPage';
+
 import {Dimensions, Text, TouchableOpacity, View, Image} from 'react-native';
 import SearchIcon from '../../assets/tabIcons/search.svg';
 import ScreenCastIcon from '../../assets/tabIcons/screenCast.svg';
+import DetailsPage from '../Screens/HomeScreens/DetailsPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,10 +18,10 @@ const HomeStack = () => {
             backgroundColor: `#141115`,
           },
           headerTitle: () => (
-            <View className="flex-1  -white flex-row justify-between items-center z-10 relative ">
+            <View className="flex-1 flex-row justify-between ">
               {/* <NetflixIcon /> */}
-              <Text className="text-white text-2xl">Home</Text>
-              <View className="flex-row gap-[11]">
+              <Text className=" text-white text-2xl">Home</Text>
+              <View className="flex-row w-[90px] gap-[11]">
                 <TouchableOpacity>
                   <ScreenCastIcon />
                 </TouchableOpacity>
@@ -40,7 +41,7 @@ const HomeStack = () => {
         name="HomeScreen"
         component={HomePage}
       />
-      <Stack.Screen name="Details" component={DetailsPage} />
+      <Stack.Screen options={{headerShown:false}} name="Details" component={DetailsPage} />
     </Stack.Navigator>
   );
 };

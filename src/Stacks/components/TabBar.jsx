@@ -1,12 +1,10 @@
 import {View, TouchableOpacity, Text} from 'react-native';
-import HomeActive from '../../../assets/homeActive.svg';
-import HomeInactive from '../../../assets/homeInActive.svg';
-import ProfilActive from '../../../assets/userActive.svg';
-import ProfilInactive from '../../../assets/userInActive';
-import NewAndHot from '../../../assets/newAndHot';
-import NewAndHotInActive from '../../../assets/newAndHotInActive';
-import DownloadActive from '../../../assets/downloadActive';
-import DownloadInActive from '../../../assets/downloadInActive';
+import HomeActive from '@assets/homeActive.svg';
+import HomeInactive from '@assets/homeInActive.svg';
+import ProfileActive from '@assets/userActive.svg';
+import ProfileInActive from '@assets/userInActive.svg';
+import Search from '@assets/tabIcons/searchActive';
+import SearchInActive from '@assets/tabIcons/searchInActive';
 
 const TabBar = ({state, descriptors, navigation}) => {
   return (
@@ -22,10 +20,10 @@ const TabBar = ({state, descriptors, navigation}) => {
 
         if (label === 'Home') {
           icon = isFocused ? <HomeActive /> : <HomeInactive />;
-        } else if (label === 'New & Hot') {
-          icon = isFocused ? <NewAndHot /> : <NewAndHotInActive />;
-        }else if (label === 'Downloads') {
-          icon = isFocused ? <DownloadActive /> : <DownloadInActive />;
+        } else if (label === 'Search') {
+          icon = isFocused ? <Search /> : <SearchInActive />;
+        }else if (label === 'profile') {
+          icon = isFocused ? <ProfileActive /> : <ProfileInActive />;
         }
 
         const onPress = () => {

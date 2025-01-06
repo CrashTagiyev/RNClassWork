@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DownloadsScreen from '../Screens/downloadsScreens/DownloadsScreen';
 import {Dimensions, Text, TouchableOpacity, View, Image} from 'react-native';
-import SearchIcon from '../../assets/tabIcons/search.svg';
-import ScreenCastIcon from '../../assets/tabIcons/screenCast.svg';
+import SearchIcon from '@assets/tabIcons/search.svg';
+import ScreenCastIcon from '@assets/tabIcons/screenCast.svg';
 
 
 const Stack = createNativeStackNavigator()
@@ -17,10 +17,10 @@ const DownloadsStack = () => {
                   backgroundColor: `#141115`,
                 },
                 headerTitle: () => (
-                  <View className="flex-1  -white flex-row justify-between items-center z-10 relative ">
-                    {/* <NetflixIcon /> */}
-                    <Text className="text-white text-2xl">Downloads</Text>
-                    <View className="flex-row gap-[11]">
+                  <View className="flex-1 flex-row justify-between ">
+                  {/* <NetflixIcon /> */}
+                  <Text className=" text-white text-2xl">Downloads</Text>
+                  <View className="flex-row w-[90px] gap-[11]">
                       <TouchableOpacity>
                         <ScreenCastIcon />
                       </TouchableOpacity>

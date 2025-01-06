@@ -15,5 +15,7 @@
     "recoverPassword" : "Восстановить пароль",    
     "home" : "Главная",
     "newAndHot" : "Новое и популярное",
-    "downloads" : "Загрузки"
+    "downloads" : "Загрузки",
+    "search" : "Поиск"
+
 }
